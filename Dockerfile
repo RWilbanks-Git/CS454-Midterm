@@ -1,1 +1,6 @@
-Placeholder Text (will fill after working well on laptop/VM)
+FROM node:22-alpine
+WORKDIR /app
+COPY package*.json ./
+COPY src ./src
+EXPOSE 8080
+CMD ["node", "src/server.js"]
