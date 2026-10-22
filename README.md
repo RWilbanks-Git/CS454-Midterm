@@ -5,20 +5,28 @@
 - Docker
 - Docker Compose
 - A Linux VM (I used Ubuntu, but it should work with other types as well)
+  - Make sure the network is set to "NAT", as we want to be able to communicate with the main machine.
 - kubectl
 - k3d
 - curl
-- Node.js
+- Node.js (22 or newer)
 - npm
+
+- Extra Note:) Before starting, ensure that your main machine and VM are able to communicate effectively
 
 
 ## Part 1:) Small Web Service
 ........................
-Requires Node.js 22 or newer and curl. No npm install is needed.
+First, we will build the actual image using the command below (make sure to go to the folder/directory where the Dockerfile is present before running). We will ensure it exists after. 
 ```bash
-npm test
-npm start
+sudo docker build -t cs454-midterm:1.0 .
+sudo docker images cs454-midterm
 ```
+^Note:) Replace "cs454-midterm:1.0" if you want a different name^
+
+
+
+
 In another terminal:
 ```bash
 bash test/smoke.sh
@@ -41,8 +49,7 @@ BASE_URL=http://localhost:8090 bash test/smoke.sh
 
 ## Part 2:) Docker Compose Inside a Linux VM
 ........................
-
-
+- 
 
 
 
