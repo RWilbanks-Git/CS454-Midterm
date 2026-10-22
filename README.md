@@ -15,7 +15,7 @@
 - Extra Note:) Before starting, ensure that your main machine and VM are able to communicate effectively
 
 
-## Part 1-2:) Small Web Service & Docker Compose Inside a Linux VM
+## Part 1-2:) Small Web Service & Docker Compose Inside a Linux VM (Incomplete)
 
 First, we will build the actual image, ensure it exists, start the application, and check the current service status (make sure it is running as desired).
 ```bash
@@ -50,7 +50,7 @@ sudo docker compose logs
 
 
 
-## Part 3:) Kubernetes Deployment
+## Part 3:) Kubernetes Deployment (Incomplete)
 
 From the Linux VM (Ubuntu for me), import the image into the cluster and confirm its existence using the following: 
 ```bash
@@ -68,14 +68,36 @@ kubectl rollout status deployment/cs454-midterm
 kubectl get deployment cs454-midterm
 kubectl get pods -o wide
 ```
+*-------------------Placeholder Space------------------------------*
+
+Delete a pod, then check for a replacement (should appear soon after deletion)
+```bash
+kubectl delete pod *insert existing pod name here*
+kubectl get pods -o wide
+```
+
 
 
 ## Part 4:) Controlled Troubleshooting
 ........................
+Here, we will change the service selector to a label that doesn't match the Pods. 
+We will check the Endpoint Slices and Pod Readiness before and after the label is changed to the incorrect one, and after the label is changed back. We'll make sure everything seems to be running as expected first. 
+```bash
+kubectl get pods -o wide
+kubectl get endpointslices -l kubernetes.io/service-name=cs454-midterm
+```
+Now we will change the label to "somethingWrong". Afterwards, we perform tests that show the consequences of doing this.
+```bash
+kubectl patch service cs454-midterm -p '{"spec":{"selector":{"app":"somethingWrong"}}}'
+kubectl get endpointslices
+kubectl exec service-test -- curl -sS -i --max-time 5 http://cs454-midterm:8080/health
+```
+Since the label is wrong, we can not connect to the server and the endpoints become unusable.
 
-
-
-
+Let's fix this by changing it back.
+```bash
+kubectl patch service cs454-midterm -p '{"spec":{"selector":{"app":"cs454-midterm"}}}'
+```
 
 ## Part 5:) OpenStack Deployment Analysis
 ........................
