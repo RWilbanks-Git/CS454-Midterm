@@ -27,14 +27,18 @@ sudo docker compose ps
 ^Note:) Replace "cs454-midterm:latest" if you want a different name^
 
 Now we will test the endpoints. Both were tested in the Ubuntu VM.
+The counter should increase after each run.
 ```bash
 curl http://localhost:8080/health
 curl http://localhost:8080/
 ```
 - If desired, you can use "-i" after "curl" in order to get more detailed results.
 
-
-
+Now we will run from Windows Powershell.
+```bash
+curl.exe http://127.0.0.1:18080/health
+curl.exe http://127.0.0.1:18080/
+```
 
 
 You can check the logs using the following:
@@ -46,12 +50,24 @@ sudo docker compose logs
 
 
 
-
 ## Part 3:) Kubernetes Deployment
 
-
-
-
+From the Linux VM (Ubuntu for me), import the image into the cluster and confirm its existence using the following: 
+```bash
+k3d image import cs454-midterm:latest -c practiceCluster
+kubectl get nodes
+```
+Now we need to add/apply the configuration files:
+```bash
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+```
+Now, we likely want to check on the rollout, deployment, and pods:
+```bash
+kubectl rollout status deployment/cs454-midterm
+kubectl get deployment cs454-midterm
+kubectl get pods -o wide
+```
 
 
 ## Part 4:) Controlled Troubleshooting
