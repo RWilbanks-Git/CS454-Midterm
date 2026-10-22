@@ -72,7 +72,7 @@ kubectl get pods -o wide
 ```
 *-------------------Placeholder Space------------------------------*
 
-Delete a pod, then check for a replacement (should appear soon after deletion)
+Delete a pod, then check for a replacement (should appear soon after deletion).
 ```bash
 kubectl delete pod *insert existing pod name here*
 kubectl get pods -o wide
