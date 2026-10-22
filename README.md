@@ -1,11 +1,19 @@
-# CS454/554 Midterm Mini-Project Starter
+# CS454 Midterm
 
-Use this service with **One Service, Two Deployment Environments**. See the accompanying assignment handout for grading and deliverables.
+## Prerequisites 
+........................
+- Docker
+- Docker Compose
+- A Linux VM (I used Ubuntu, but it should work with other types as well)
+- kubectl
+- k3d
+- curl
+- Node.js
+- npm
 
-## What is supplied
-A dependency-free Node.js HTTP server, configurable environment variables, request logging, signal handling, and a basic automated test. The application is intentionally complete so your work focuses on deployment and analysis.
 
-## Run locally
+## Part 1:) Small Web Service
+........................
 Requires Node.js 22 or newer and curl. No npm install is needed.
 ```bash
 npm test
@@ -25,6 +33,40 @@ For that port:
 ```bash
 BASE_URL=http://localhost:8090 bash test/smoke.sh
 ```
+
+
+
+
+
+
+## Part 2:) Docker Compose Inside a Linux VM
+........................
+
+
+
+
+
+## Part 3:) Kubernetes Deployment
+........................
+
+
+
+
+
+## Part 4:) Controlled Troubleshooting
+........................
+
+
+
+
+
+## Part 5:) OpenStack Deployment Analysis
+........................
+
+
+
+
+
 
 ## Endpoints
 - GET /: JSON service, message, hostname, and requestCount.
