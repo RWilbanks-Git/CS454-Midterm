@@ -1,0 +1,33 @@
+apiversion: apps/v1
+kind: Deployment
+metadata:
+  name: cs454-midterm
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cs454-midterm
+  template:
+    metadata:
+      labels:
+        app: cs454-midterm
+    spec:
+      containers:
+        - name: cs454-midterm
+          image: cs454-midterm:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: SERVICE_NAME
+              value: "cs454-midterm"
+            - name: MESSAGE
+              value: "Hello from Kubernetes!"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 2
+            periodSeconds: 5
