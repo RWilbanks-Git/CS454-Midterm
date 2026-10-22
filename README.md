@@ -21,14 +21,14 @@
 
 First, we will build the actual image, ensure it exists, start the application, and check the current service status (make sure it is running as desired).
 ```bash
-sudo docker build -t cs454-midterm:latest .
+sudo docker build -t cs454-midterm .
 sudo docker images
 sudo docker compose up -d --build
 sudo docker compose ps
 ```
-^Note:) Replace "cs454-midterm:latest" if you want a different name^
+^Note:) Replace "cs454-midterm" if you want a different name^
 
-Now we will test the endpoints. Both were tested in the Ubuntu VM.
+Now we will test the endpoints (health and the main one). Both were tested in the Ubuntu VM.
 The counter should increase after each run.
 ```bash
 curl http://localhost:8080/health
