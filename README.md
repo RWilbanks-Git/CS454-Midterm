@@ -1,7 +1,7 @@
 # CS454 Midterm
 
 ## Prerequisites 
-........................
+
 - Docker
 - Docker Compose
 - A Linux VM (I used Ubuntu, but it should work with other types as well)
@@ -15,46 +15,40 @@
 - Extra Note:) Before starting, ensure that your main machine and VM are able to communicate effectively
 
 
-## Part 1:) Small Web Service
-........................
-First, we will build the actual image using the command below (make sure to go to the folder/directory where the Dockerfile is present before running). We will ensure it exists after. 
+## Part 1-2:) Small Web Service & Docker Compose Inside a Linux VM
+
+First, we will build the actual image, ensure it exists, start the application, and check the current service status (make sure it is running as desired).
 ```bash
-sudo docker build -t cs454-midterm:1.0 .
-sudo docker images cs454-midterm
+sudo docker build -t cs454-midterm:latest .
+sudo docker images
+sudo docker compose up -d --build
+sudo docker compose ps
 ```
-^Note:) Replace "cs454-midterm:1.0" if you want a different name^
+^Note:) Replace "cs454-midterm:latest" if you want a different name^
 
-
-
-
-In another terminal:
+Now we will test the endpoints. Both were tested in the Ubuntu VM.
 ```bash
-bash test/smoke.sh
+curl http://localhost:8080/health
+curl http://localhost:8080/
 ```
-Defaults: PORT=8080, SERVICE_NAME=cs454-midterm, MESSAGE=Hello from the mini-project!
+- If desired, you can use "-i" after "curl" in order to get more detailed results.
 
-Example configuration:
+
+
+
+
+You can check the logs using the following:
 ```bash
-PORT=8090 SERVICE_NAME=my-midterm MESSAGE="Hello from my VM" npm start
-```
-For that port:
-```bash
-BASE_URL=http://localhost:8090 bash test/smoke.sh
+sudo docker compose logs
 ```
 
 
 
-
-
-
-## Part 2:) Docker Compose Inside a Linux VM
-........................
-- 
 
 
 
 ## Part 3:) Kubernetes Deployment
-........................
+
 
 
 
