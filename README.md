@@ -45,7 +45,7 @@ Now we will run from Windows Powershell.
 curl.exe http://127.0.0.1:18080/health
 curl.exe http://127.0.0.1:18080/
 ```
-<img width="600" height="146" alt="pt2-VM-portForwarding" src="https://github.com/user-attachments/assets/e082c9b3-79f0-4842-893c-9d63c2bcc37e" />
+<img width="950" height="231" alt="pt2-windowsRequests" src="https://github.com/user-attachments/assets/5a6c6ea5-e647-4be4-af95-46a6172f3678" />
 
 
 Check the logs using the following:
