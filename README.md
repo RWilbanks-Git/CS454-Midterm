@@ -15,7 +15,7 @@
 - npm
 
 
-## Part 1-2:) Small Web Service & Docker Compose Inside a Linux VM (Incomplete)
+## Part 1-2:) Small Web Service & Docker Compose Inside a Linux VM
 
 First, we will build the actual image, ensure it exists, start the application, and check the current service status (to make sure it is running correctly).
 ```bash
@@ -56,7 +56,7 @@ sudo docker compose logs api
 
 
 
-## Part 3:) Kubernetes Deployment (Incomplete)
+## Part 3:) Kubernetes Deployment
 
 From the Linux VM (Ubuntu for me), import the image into the cluster and confirm its existence using the following: 
 ```bash
