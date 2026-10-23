@@ -50,7 +50,7 @@ curl.exe http://127.0.0.1:18080/
 
 Check the logs using the following:
 ```bash
-sudo docker compose logs
+sudo docker compose logs api
 ```
 <img width="617" height="452" alt="pt2-logs" src="https://github.com/user-attachments/assets/0ef6bc7c-8935-4bf1-a72c-5f15b56746b9" />
 
