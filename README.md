@@ -14,7 +14,7 @@
 - Node.js (22 or newer)
 - npm
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------
 ## Part 1-2:) Small Web Service & Docker Compose Inside a Linux VM
 
 First, we will build the actual image, ensure it exists, start the application, and check the current service status (to make sure it is running correctly).
