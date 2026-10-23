@@ -14,8 +14,6 @@
 - Node.js (22 or newer)
 - npm
 
-- Extra Note:) Before starting, ensure that your main machine and VM are able to communicate effectively
-
 
 ## Part 1-2:) Small Web Service & Docker Compose Inside a Linux VM (Incomplete)
 
