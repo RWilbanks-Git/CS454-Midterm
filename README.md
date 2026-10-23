@@ -6,7 +6,7 @@
 - Docker Compose
 - A Linux VM (I used an Ubuntu VM and VirtualBox, but it should work with other types as well)
   - If you want to follow along directly, I recommend you change your port forwarding settings to match the ones shown below (for the VM).
-  - You can still use something else, but some commands will be different depending on your IPs and Ports. 
+  - You don't have to use them, but some commands will be different depending on your IPs and Ports. 
 <img width="600" height="146" alt="pt2-VM-portForwarding" src="https://github.com/user-attachments/assets/d1199c7c-183f-4b9a-9da7-d5fabed08de0" />
 
 - kubectl
