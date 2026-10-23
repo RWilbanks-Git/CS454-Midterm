@@ -17,14 +17,13 @@
 
 ## Part 1-2:) Small Web Service & Docker Compose Inside a Linux VM (Incomplete)
 
-First, we will build the actual image, ensure it exists, start the application, and check the current service status (make sure it is running as desired).
+First, we will build the actual image, ensure it exists, start the application, and check the current service status (to make sure it is running correctly).
 ```bash
 sudo docker build -t cs454-midterm .
 sudo docker images
 sudo docker compose up -d --build
 sudo docker compose ps
 ```
-^Note:) Replace "cs454-midterm" if you want a different name^
 
 Now we will test the endpoints (health and the main one). Both were tested in the Ubuntu VM.
 The counter should increase after each run.
@@ -32,7 +31,7 @@ The counter should increase after each run.
 curl http://localhost:8080/health
 curl http://localhost:8080/
 ```
-- If desired, you can use "-i" after "curl" in order to get more detailed results.
+- If wanted, you can use "-i" after "curl" in order to get more detailed results.
 
 Now we will run from Windows Powershell.
 ```bash
@@ -41,12 +40,10 @@ curl.exe http://127.0.0.1:18080/
 ```
 
 
-You can check the logs using the following:
+Check the logs using the following:
 ```bash
 sudo docker compose logs
 ```
-
-
 
 
 
@@ -57,19 +54,17 @@ From the Linux VM (Ubuntu for me), import the image into the cluster and confirm
 k3d image import cs454-midterm:latest -c practiceCluster
 kubectl get nodes
 ```
-Now we need to add/apply the configuration files:
+Add/apply the configuration files:
 ```bash
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
-Now, we likely want to check on the rollout, deployment, and pods:
+Now, check on the rollout, deployment, and pods:
 ```bash
 kubectl rollout status deployment/cs454-midterm
 kubectl get deployment cs454-midterm
 kubectl get pods -o wide
 ```
-*-------------------Placeholder Space------------------------------*
-
 Delete a pod, then check for a replacement (should appear soon after deletion).
 ```bash
 kubectl delete pod *insert existing pod name here*
@@ -77,16 +72,15 @@ kubectl get pods -o wide
 ```
 
 
-
 ## Part 4:) Controlled Troubleshooting
-........................
 Here, we will change the service selector to a label that doesn't match the Pods. 
-We will check the Endpoint Slices and Pod Readiness before and after the label is changed to the incorrect one, and after the label is changed back. We'll make sure everything seems to be running as expected first. 
+We will check the Endpoint Slices and Pod Readiness before and after the label is changed to the incorrect one, and after the label is changed back. 
+We'll make sure everything seems to be running as expected first. 
 ```bash
 kubectl get pods -o wide
 kubectl get endpointslices -l kubernetes.io/service-name=cs454-midterm
 ```
-Now we will change the label to "somethingWrong". Afterwards, we perform tests that show the consequences of doing this.
+Now we change the label to "somethingWrong". Afterwards, we perform tests that show the consequences of doing this.
 ```bash
 kubectl patch service cs454-midterm -p '{"spec":{"selector":{"app":"somethingWrong"}}}'
 kubectl get endpointslices
