@@ -119,7 +119,8 @@ kubectl patch service cs454-midterm -p '{"spec":{"selector":{"app":"cs454-midter
 
 
 ## Part 5:) OpenStack Deployment Analysis
-........................
+
+You can find this in the "CS454 Midterm.pdf" file. (https://github.com/RWilbanks-Git/CS454-Midterm/blob/main/CS454%20Midterm.pdf)
 
 
 
